@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+/* --- Global Styles --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f8f9fd;
+  color: #222;
+}
+
+/* Center container */
+.app {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Title */
+h1 {
+  font-size: 36px;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* --- Card Component --- */
+.card {
+  background: #ffffff;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+h2, h3 {
+  margin-top: 0;
+  color: #34495e;
+}
+
+/* --- Inputs --- */
+input[type="file"],
+textarea {
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px;
+  padding: 12px;
+  margin: 10px 0 20px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  resize: vertical;
+  display: block;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* --- Buttons --- */
+button {
+  background-color: #4c66f0;
+  color: white;
+  padding: 12px 18px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background-color: #3a53d8;
+}
+
+button:disabled {
+  background-color: #9ba7f5;
+  cursor: not-allowed;
+}
+
+/* Error message */
+.error {
+  margin-top: 10px;
+  color: #d9534f;
+  font-weight: bold;
+}
+
+/* Text previews */
+.preview, .feedback {
+  background: #f3f4f9;
+  padding: 16px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  font-family: "Consolas", monospace;
+  border: 1px solid #ddd;
+}
