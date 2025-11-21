@@ -1,53 +1,102 @@
 # Resume Analyzer AI
 
-Resume Analyzer AI is a web app that lets users upload résumé PDFs and analyze them against a job description using an AI-powered RAG (Retrieval-Augmented Generation) pipeline.
+A smart web application that analyzes a résumé PDF and compares it against any job description using **RAG (Retrieval-Augmented Generation)** + **LLMs**.
 
-It extracts text from the résumé, embeds it into a vector store, and uses an LLM to generate recruiter-style feedback:
-- Key strengths
-- Missing skills
-- Match summary and a similarity score
+Designed to help candidates instantly understand how well their résumé matches a job posting — with detailed feedback and a match score.
 
----
-
-## Tech Stack
-
-**Backend**
-
-- FastAPI (Python)
-- sentence-transformers (for embeddings)
-- In-memory vector store (cosine similarity)
-- PDF parsing with pdfplumber
-- LLM client (pluggable, e.g. OpenAI)
-
-**Frontend**
-
-- React (TypeScript)
-- Axios for API calls
-- Vite for bundling/dev server
-
----
+## UI Preview
+![UI Preview](./screenshot-ui.png)
 
 ## Features
+- Upload résumé PDF and extract text automatically
+- Paste job description
+- Embedding-based similarity matching
+- RAG-based retrieval
+- LLM-powered feedback
+- Match score + improvements
+- Clean React UI
 
-- Upload résumé as PDF
-- Extract and preview parsed text
-- Paste a job description
-- RAG-based retrieval of relevant context
-- LLM-generated recruiter-style analysis
-- Similarity score between résumé and job description
+## Tech Stack
+### Frontend
+- React + Vite (TypeScript)
+- Axios
+- Custom CSS
 
----
+### Backend
+- FastAPI
+- Uvicorn
+- PyPDF2
+- Sentence-Transformers
+- Vector Store
 
-## Architecture
+## Project Structure
+```
+Resume-Analyzer-AI/
+├── backend/
+│   ├── app/
+│   │   ├── main.py
+│   │   └── services/
+│   │       ├── pdf_extractor.py
+│   │       ├── embedding.py
+│   │       ├── vectorstore.py
+│   │       ├── rag.py
+│   │       └── llm.py
+│   ├── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── App.tsx
+│   │   ├── index.tsx
+│   │   └── styles.css
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.ts
+└── README.md
+```
 
-```text
-[React Frontend]
-     |
-     v
-[FastAPI Backend] --- PDF parsing (pdfplumber)
-     |
-     +-- Embeddings (sentence-transformers)
-     |
-     +-- InMemoryVectorStore (RAG)
-     |
-     +-- LLM Client (e.g. OpenAI, pluggable)
+## Installation
+
+### Backend Setup
+```
+cd backend
+python -m venv venv
+venv\Scripts\activate  # Windows
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+### Frontend Setup
+```
+cd frontend
+npm install
+npm run dev
+```
+
+## API Endpoints
+
+### Upload PDF
+POST /upload
+Response:
+```
+{ "text": "Extracted résumé text..." }
+```
+
+### Analyze Resume
+POST /analyze
+Payload:
+```
+{ "job_description": "..." }
+```
+Response:
+```
+{ "similarity": "82%", "feedback": "..." }
+```
+
+## Future Enhancements
+- Multi-resume comparison
+- Recruiter dashboard
+- AI résumé rewrite
+- OAuth login
+- Cloud storage support
+
+## License
+MIT
